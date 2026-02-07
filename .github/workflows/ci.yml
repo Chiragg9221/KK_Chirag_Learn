@@ -1,5 +1,8 @@
 name: My Workflow
-
+concurrency: 
+    group: Production Workflow
+    cancel-in-progress: true
+    
 on:
     workflow_dispatch:
       
