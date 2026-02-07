@@ -1,0 +1,16 @@
+name: Matrix
+
+on: 
+    push: 
+
+jobs:
+    Matrix_Array:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+                image: [hello-world, alpine]
+        runs-on: ${{matrix.os}}
+        steps:
+            - name: Job Runs on ${{matrix.os}}
+              run: |
+                docker run ${{matrix.image}}
