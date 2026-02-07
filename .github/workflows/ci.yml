@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: 
         group: Production  #THIS IS A UNIQUE NAME
-        cancel-in-progress: true
+        cancel-in-progress: false  #if we keep true than it will cancel the job in porgress & if False than new one will be cancelled and in progress will run
     steps:
       - name: Second Job - First Step
         run: | 
