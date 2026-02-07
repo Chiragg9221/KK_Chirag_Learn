@@ -6,11 +6,26 @@ on:
 jobs:
     Matrix_Array:
         strategy:
+            fail-fast: true
+            max-parallel: 6
             matrix:
                 os: [ubuntu-latest, windows-latest]
                 image: [hello-world, alpine]
+
+                exclude:
+                  - os: windows-latest
+                    image: alpine
+                
+                include:
+                  - os: ubuntu-latest
+                    image: amd64/alpine
+
         runs-on: ${{matrix.os}}
         steps:
+            - name: Image & runner name
+              run: |
+                echo " ${{matrix.os}} & ${{matrix.image}}"
             - name: Job Runs on ${{matrix.os}}
               run: |
+                
                 docker run ${{matrix.image}}
