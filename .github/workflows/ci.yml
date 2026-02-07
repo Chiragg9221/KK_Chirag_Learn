@@ -28,7 +28,7 @@ jobs:
       - name: Second Job - First Step
         run: | 
             echo "My name is ${{env.First_name}} ${{env.Second_name}}"
-            sleep 600
+            sleep 600s
 
 
 
