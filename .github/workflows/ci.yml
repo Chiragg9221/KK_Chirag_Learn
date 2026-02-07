@@ -2,7 +2,7 @@ name: My Workflow
 concurrency: 
     group: Production Workflow
     cancel-in-progress: true
-    
+
 on:
     workflow_dispatch:
       
@@ -15,18 +15,20 @@ env:
 
 jobs:
   Job1:
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:
       - name: First Step
         run: |
             echo "My name is ${{env.First_name}} ${{env.Second_name}}"
+            sleep 200s
 
   
   Job2:
     runs-on: ubuntu-latest
     concurrency: 
         group: Production  #THIS IS A UNIQUE NAME
-        cancel-in-progress: false  #if we keep true than it will cancel the job in porgress & if False than new one will be cancelled and in progress will run
+        cancel-in-progress: true  #if we keep true than it will cancel the job in porgress & if False than new one will be cancelled and in progress will run
     steps:
       - name: Second Job - First Step
         run: | 
