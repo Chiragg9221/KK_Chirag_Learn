@@ -21,6 +21,9 @@ jobs:
   
   Job2:
     runs-on: ubuntu-latest
+    concurrency: 
+        group: Production  #THIS IS A UNIQUE NAME
+        cancel-in-progress: true
     steps:
       - name: Second Job - First Step
         run: | 
