@@ -1,1 +1,19 @@
+name: Workflow
+
+on:
+    schedule:
+      - cron: "*/1 * * * *"  
+
+env:
+  First_name: "Chirag"
+  Second_name: "Gupta"
+
+jobs:
+  Job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First Step
+        run: |
+            echo "My name is ${{env.First_name}} ${{env.Second_name}}"
+
 
