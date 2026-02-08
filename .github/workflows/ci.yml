@@ -25,6 +25,7 @@ jobs:
 
   
   Job2:
+    if: github.ref == 'main'
     runs-on: ubuntu-latest
     concurrency: 
         group: Production  #THIS IS A UNIQUE NAME
