@@ -5,6 +5,24 @@ concurrency:
 
 on:
     workflow_dispatch:
+
+    push:
+      branches: 
+        - main
+        - "!feature/*"
+      
+    pull_request:
+      branches: 
+        - main
+        - feature/*
+
+      paths-ignore: 
+        - readme.md
+
+      types: 
+        - opened
+        - closed
+
       
     # schedule:
     #   - cron: "*/5 * * * *"  
